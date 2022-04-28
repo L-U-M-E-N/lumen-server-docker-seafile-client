@@ -114,7 +114,15 @@ keep_in_foreground() {
   done
 }
 
+start_lumen() {
+  sleep 90
+  cd lumen-server/
+  npm ci
+  npm start
+}
+
 setup_uid
 start_seafile
 setup_lib_sync
+start_lumen &
 keep_in_foreground
