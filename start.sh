@@ -123,8 +123,10 @@ start_lumen() {
     cd modules/
     find * -prune -type d | while IFS= read -r d; do 
         (
-          cd "$d"
-          npm ci
+          if -f "$d/package.json"; then
+            cd "$d"
+            npm ci
+          fi
         )
     done
   )
