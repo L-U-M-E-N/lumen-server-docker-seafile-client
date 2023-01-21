@@ -9,8 +9,6 @@ RUN apt-get install -y seafile-cli procps grep nodejs unzip
 RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get clean
 RUN mkdir /lumen
-RUN mkdir -p /root/.npm
-RUN chown -R 1000:1000 /root/.npm
 
 WORKDIR /seafile-client
 

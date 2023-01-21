@@ -116,9 +116,8 @@ keep_in_foreground() {
 
 start_lumen() {
   sleep 120
-  cd lumen-server/
-  npm ci
-  npm start
+  su - seafile -c "cd lumen-server/ && npm ci"
+  su - seafile -c "cd lumen-server/ && npm start"
   start_lumen
 }
 
