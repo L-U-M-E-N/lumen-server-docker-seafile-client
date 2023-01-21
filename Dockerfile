@@ -15,6 +15,7 @@ WORKDIR /seafile-client
 COPY start.sh /seafile-client/start.sh
 
 COPY lumen-server/ /seafile-client/lumen-server/
+COPY config.js /seafile-client/lumen-server/config.js
 
 RUN chmod +x /seafile-client/start.sh && \
     useradd -U -d /seafile-client -s /bin/bash seafile && \
