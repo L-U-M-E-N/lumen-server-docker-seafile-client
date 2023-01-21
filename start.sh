@@ -118,21 +118,7 @@ start_lumen() {
   sleep 120
   cd lumen-server/
   npm ci
-
-  (
-    cd modules/
-    find * -prune -type d | while IFS= read -r d; do 
-        (
-          if -f "$d/package.json"; then
-            cd "$d"
-            npm ci
-          fi
-        )
-    done
-  )
-  
   npm start
-
   start_lumen
 }
 
