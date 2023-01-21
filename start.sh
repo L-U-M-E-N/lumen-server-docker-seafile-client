@@ -115,7 +115,7 @@ keep_in_foreground() {
 }
 
 start_lumen() {
-  sleep 90
+  sleep 120
   cd lumen-server/
   npm ci
 
@@ -132,6 +132,8 @@ start_lumen() {
   )
   
   npm start
+
+  start_lumen
 }
 
 setup_uid
