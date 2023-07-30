@@ -115,10 +115,12 @@ keep_in_foreground() {
 }
 
 start_lumen() {
-  sleep 120
-  su - seafile -c "cd lumen-server/ && npm ci"
-  su - seafile -c "cd lumen-server/ && npm start"
-  start_lumen
+  while true
+  do
+    sleep 60
+    su - seafile -c "cd lumen-server/ && npm ci"
+    su - seafile -c "cd lumen-server/ && npm start"
+  done
 }
 
 setup_uid
