@@ -119,7 +119,7 @@ start_lumen() {
   do
     sleep 60
     su - seafile -c "cd lumen-server/ && npm ci"
-    su - seafile -c "cd lumen-server/ && npm start"
+    su - seafile -c "cd lumen-server/ && npm start" || true
   done
 }
 
