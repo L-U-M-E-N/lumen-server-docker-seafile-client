@@ -119,7 +119,7 @@ start_lumen() {
   do
     sleep 60
     su - seafile -c "cd lumen-server/ && npm ci"
-    su - seafile -c "cd lumen-server/ && npm start" || true
+    su - seafile -c "cd lumen-server/ && PG_HOST='$PG_HOST' PG_USER='$PG_USER' PG_DB='$PG_DB' PG_PASSWORD='$PG_PASSWORD' npm start" || true
   done
 }
 
