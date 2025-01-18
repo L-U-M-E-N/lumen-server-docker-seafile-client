@@ -11,7 +11,14 @@ const config = {
                         onstdout: (data) => { log(yellowText('SYSTEM.SUBPROCESS.hash - ') + (''+data).split('\n').join(' ')); },
                         onerr: (data) => { log('SYSTEM.SUBPROCESS.hash: ' + data, 'error'); }
                 };*/
-        }
+        },
+        'database': { // Mandatory
+                'user': process.env.PG_USER,
+                'host': process.env.PG_HOST,
+                'database': process.env.PG_DB,
+                'password': process.env.PG_PASSWORD,
+                'port': 5432
+        },
 };
 
 export default config;
