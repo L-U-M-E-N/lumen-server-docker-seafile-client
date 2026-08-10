@@ -3,7 +3,12 @@ FROM debian:bullseye-slim
 RUN apt-get update && apt-get install gnupg curl -y
 RUN curl https://linux-clients.seafile.com/seafile.asc -o /usr/share/keyrings/seafile-keyring.asc
 RUN echo deb [arch=amd64 signed-by=/usr/share/keyrings/seafile-keyring.asc] https://linux-clients.seafile.com/seafile-deb/bullseye/ stable main | tee /etc/apt/sources.list.d/seafile.list
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+# Download and install nvm:
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.6/install.sh | bash
+# in lieu of restarting the shell
+RUN \. "$HOME/.nvm/nvm.sh"
+# Download and install Node.js:
+RUN nvm install 24
 RUN apt-get update -y
 RUN apt-get install -y seafile-cli procps grep nodejs unzip
 RUN rm -rf /var/lib/apt/lists/*
